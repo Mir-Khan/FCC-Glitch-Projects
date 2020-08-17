@@ -50,7 +50,7 @@ app.get("/api/timestamp/:input", (req, res) => {
   var userDate = new Date(userInput);
 //   if the date input was invalid, the toString method should yield invalid date as a return value
   if(userDate.toString() === "Invalid Date"){
-    res.json({unix: "Invalid Date", utc: "Invalid Date"});
+    res.json({error: "Invalid Date"});
   }else{
     res.json({unix: userDate.valueOf(), utc: userDate.toUTCString()});
   }
